@@ -1,0 +1,86 @@
+#right-panel {
+    width: 67%;
+    border: 1px solid black;
+    border-left: 0px;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#right-panel-top {
+    width: 100%;
+    height: 2rem;
+    border-bottom: 1px solid black;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#right-panel-bottom {
+    height: 4rem;
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1vw;
+    flex-shrink: 0;
+    padding: 0 1vw;
+}
+
+#right-panel-bottom textarea {
+    resize: none;
+    min-height: 2rem;
+    width: 20rem;
+    border-radius: 0.5rem;
+}
+
+#right-panel-bottom button {
+    aspect-ratio: 1 / 1;
+    padding: 0px;
+    margin: 0px;
+    border: none;
+    height: 2rem;
+    background: none;
+}
+
+#right-panel-bottom button img {
+    aspect-ratio: 1 / 1;
+    height: inherit;
+}
+
+#message-history {
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 2vw 2vw;
+    margin-top: auto;
+}
+
+.my-message, .chat-partner-message {
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    max-width: 20vw;
+    flex: 1 0 2rem;
+    overflow-wrap: break-word;
+    display: flex;
+    flex-direction: column;
+}
+
+.my-message {
+    align-self: flex-end;
+}
+
+.chat-partner-message {
+    align-self: flex-start;
+}
+
+.message-date {
+    font-size: 0.7rem;
+    color: gray;
+    align-self: flex-end;
+    justify-content: flex-end;
+}

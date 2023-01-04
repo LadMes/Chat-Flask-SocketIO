@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Find
+{% endblock %}
+
+{% block main %}
+    <div class="inner-container">
+        <div class="input-group mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Find user" type="text">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" id="search-btn">Search</button>
+            </span>
+        </div>
+        <table class="table table-light">
+            <tbody id="names">
+
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        function get_usernames() {
+            let username = document.querySelector("input").value;
+            fetch("/find", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    username: username
+                })
+            }).then(res => {
+                return res.json();
+            }).then(data => {
+                let text = "";
+                data.forEach(element => {
+                    text += '<tr>';
+                    text += '<td class="align-middle text-end">' + element["username"] + '</td>';
+                    text += '<td><form action="/add" method="POST">';
+                    text += '<input hidden name="id" value="' + element["id"] + '"><button class="btn btn-dark" type="submit">Start chat</button></form>';
+                    text += '</tr>';
+                });
+                let ul = document.getElementById("names");
+                ul.innerHTML = text;
+            });
+        };
+        btn = document.querySelector("#search-btn");
+        btn.addEventListener("click", get_usernames);
+        //user = document.getElementsByTagName("input")[0];
+        //user.addEventListener("keyup", get_usernames);
+    </script>
+{% endblock %}

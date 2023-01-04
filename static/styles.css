@@ -1,0 +1,48 @@
+@import 'leftPanel.css';
+@import 'rightPanel.css';
+
+.inner-container {
+    padding: 0 10vw;
+}
+
+.chats-panels {
+    height: 70vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.dot-none {
+    display: none;
+}
+
+.dot {
+    display: block;
+    height: 25px;
+    min-width: 25px;
+    background-color: #000;
+    border-radius: 50%;
+    color: #fff;
+    align-self: center;
+    margin: 1rem;
+}
+
+.new-message-separator:before, .new-message-separator:after {
+    content: "\00a0\00a0\00a0\00a0\00a0";
+    text-decoration: line-through;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
